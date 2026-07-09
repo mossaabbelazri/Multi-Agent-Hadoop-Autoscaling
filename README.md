@@ -1,4 +1,12 @@
-<div align="center">
+# 🚀 Multi-Agent System for Hadoop Cluster Auto-scaling on Cloud
+
+**Conception et Implémentation d'un Système Multi-Agents pour l'Auto-scaling d'un Cluster Hadoop**
+
+[![Java](https://img.shields.io/badge/Java-11-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![JADE](https://img.shields.io/badge/JADE-4.6.0-00897B?style=for-the-badge)](https://jade.tilab.com/)
+[![Maven](https://img.shields.io/badge/Maven-3.x-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
+[![Terraform](https://img.shields.io/badge/Terraform-IaC-844FBA?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![GCP](https://img.shields.io/badge/Google_Cloud-Compute-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/)
 
 ---
 
@@ -11,8 +19,8 @@
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
-- [How It Works](#-how-it-works)
 - [Results](#-results)
+- [Author](#-author)
 - [License](#-license)
 
 ---
@@ -44,7 +52,7 @@ The system follows a **distributed architecture** with agents communicating via 
 │  ┌─────────────┐    ACL INFORM    ┌──────────────┐           │
 │  │  🔍 Agent    │ ──────────────► │  🧠 Agent     │           │
 │  │  Moniteur    │   CPU metrics   │  Décideur     │           │
-│  │  (on AWS)    │                 │  (local PC)   │           │
+│  │  (on Cloud)  │                 │  (local PC)   │           │
 │  └─────────────┘                 └──────┬───────┘           │
 │        ▲                                │                    │
 │        │ OSHI                    ACL REQUEST                 │
@@ -52,7 +60,7 @@ The system follows a **distributed architecture** with agents communicating via 
 │  ┌─────┴───────┐                        │                    │
 │  │  Hadoop      │                 ┌──────▼───────┐           │
 │  │  Cluster     │                 │  ⚡ Agent     │           │
-│  │  (GCP EC2)   │ ◄───────────── │  Actionneur   │           │
+│  │  (GCP)       │ ◄───────────── │  Actionneur   │           │
 │  └─────────────┘   GCP API       │  (local PC)   │           │
 │                    create VM      └──────────────┘           │
 │                                                               │
@@ -78,10 +86,6 @@ The system implements the **MAPE-K** (Monitor, Analyze, Plan, Execute, Knowledge
 | **Plan**      | `DecideurAgent`   | Threshold check (>70%) + Cooldown management (180s) |
 | **Execute**   | `ActionneurAgent` | Provisions new GCP Compute instances via Java SDK   |
 | **Knowledge** | Shared Config       | Alert threshold (70%), cooldown delay, GCP config   |
-
-<div align="center">
-<img src="Projet CSMR/mape-k.jpg" alt="MAPE-K Loop" width="400"/>
-</div>
 
 ---
 
@@ -134,40 +138,29 @@ The system implements the **MAPE-K** (Monitor, Analyze, Plan, Execute, Knowledge
 | **Cloud SDK**      | Google Cloud Compute v1 (1.88.0) |
 | **Infrastructure** | Terraform (GCP provider)         |
 | **Visualization**  | Python (matplotlib)              |
-| **Presentation**   | Python (python-pptx)             |
+|                          |                                  |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-CSMR/
+Multi-Agent-Hadoop-Autoscaling/
 ├── README.md
 ├── .gitignore
-├── csmr.docx
-├── Méthodologie de la RechercheChap1 [Réparé].pptx
-├── MINI PROJETS MASTER BIG DATA_025_026 (1).xlsx
 │
-└── Projet CSMR/
-    ├── Rapport_CSMR.pdf                    # Full project report
-    ├── Presentation_Hadoop_SMA_Premium.pptx
-    ├── generate_ppt.py                     # Presentation generator
-    ├── discours-CSMR.pdf                   # Speech notes
-    ├── documentation.docx
-    ├── Synthèse.pdf
-    ├── *.png / *.jpg                       # Architecture diagrams
-    │
-    └── agenthadoopcloud/                   # Main Java project
-        ├── pom.xml                         # Maven config
-        └── src/
-            ├── test.py                     # Latency analysis chart
-            └── main/java/com/projet/hadoop/
-                ├── MainContainer.java      # JADE platform entry point
-                ├── MoniteurAgent.java      # CPU monitoring agent
-                ├── DecideurAgent.java      # Decision-making agent
-                ├── ActionneurAgent.java    # GCP cloud connector agent
-                ├── MonitoringGui.java      # Real-time Swing dashboard
-                └── main.tf                 # Terraform GCP infrastructure
+└── agenthadoopcloud/
+    ├── pom.xml                             # Maven build config
+    ├── dependency-reduced-pom.xml
+    └── src/
+        ├── test.py                         # Latency analysis chart
+        └── main/java/com/projet/hadoop/
+            ├── MainContainer.java          # JADE platform entry point
+            ├── MoniteurAgent.java          # CPU monitoring agent
+            ├── DecideurAgent.java          # Decision-making agent
+            ├── ActionneurAgent.java        # GCP cloud connector agent
+            ├── MonitoringGui.java          # Real-time Swing dashboard
+            └── main.tf                     # Terraform GCP infrastructure
 ```
 
 ---
@@ -183,8 +176,8 @@ CSMR/
 ### 1. Clone & Build
 
 ```bash
-git clone https://github.com/mossaabbelazri/CSMR-Multi-Agent-Hadoop-Autoscaling.git
-cd CSMR-Multi-Agent-Hadoop-Autoscaling/agenthadoopcloud
+git clone https://github.com/mossaabbelazri/Multi-Agent-Hadoop-Autoscaling.git
+cd Multi-Agent-Hadoop-Autoscaling/agenthadoopcloud
 mvn clean package
 ```
 
@@ -232,9 +225,6 @@ Watch the dashboard detect the spike and auto-scale!
 
 ---
 
-
-
-
 ## 👤 Author
 
 **Mossaab Belazri**
@@ -249,4 +239,4 @@ This project was developed as part of the **Master Big Data & AI** program at **
 
 ---
 
-<div align="center">
+**Built with ☕ Java, 🤖 JADE, and ☁️ Google Cloud**

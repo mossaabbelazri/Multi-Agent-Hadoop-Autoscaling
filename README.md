@@ -138,7 +138,6 @@ The system implements the **MAPE-K** (Monitor, Analyze, Plan, Execute, Knowledge
 | **Cloud SDK**      | Google Cloud Compute v1 (1.88.0) |
 | **Infrastructure** | Terraform (GCP provider)         |
 | **Visualization**  | Python (matplotlib)              |
-|                          |                                  |
 
 ---
 

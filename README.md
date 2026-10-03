@@ -235,9 +235,11 @@ Watch the dashboard detect the spike and auto-scale!
 
 ## 📄 License
 
-This project was developed as part of the **Master Big Data & AI** program at **Université Ibn Tofaïl, Kénitra**.
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
 
 ---
 
 **Built with ☕ Java, 🤖 JADE, and ☁️ Google Cloud**
+
+
 

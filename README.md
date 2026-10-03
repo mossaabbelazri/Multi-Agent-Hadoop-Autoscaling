@@ -137,7 +137,8 @@ The system implements the **MAPE-K** (Monitor, Analyze, Plan, Execute, Knowledge
 | **System Metrics** | OSHI 6.4.0                       |
 | **Cloud SDK**      | Google Cloud Compute v1 (1.88.0) |
 | **Infrastructure** | Terraform (GCP provider)         |
-| **Visualization**  | Python (matplotlib)              |
+| **Visualization**  | <br />Python (matplotlib)        |
+|                          |                                  |
 
 ---
 
@@ -234,8 +235,9 @@ Watch the dashboard detect the spike and auto-scale!
 
 ## 📄 License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project was developed as part of the **Master Big Data & AI** program at **Université Ibn Tofaïl, Kénitra**.
 
 ---
 
 **Built with ☕ Java, 🤖 JADE, and ☁️ Google Cloud**
+

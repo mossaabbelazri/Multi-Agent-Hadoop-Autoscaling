@@ -1,4 +1,4 @@
-﻿# Build artifacts
+# Build artifacts
 **/target/
 *.class
 *.jar
@@ -27,3 +27,9 @@ Thumbs.db
 # Temp
 temp_images/
 __pycache__/
+
+# Master Project Reports
+*.docx
+*.pdf
+*.pptx
+*.xlsx
